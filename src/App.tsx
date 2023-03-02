@@ -1,14 +1,19 @@
 import { FC } from 'react'
 
-import Button from 'Components/Button'
-
 const App: FC = () => {
+	const error1 = () => {
+		JSON.parse('{test')
+	}
+
+	const error2 = () => {
+		throw new Error('Error2')
+	}
+
 	return (
-		<div>
-			<div data-testid='custom-element'>heading</div>
-			<Button>Blue Button</Button>
-			<Button red>Red Button</Button>
-		</div>
+		<>
+			<button onClick={() => error1()}>error1</button>
+			<button onClick={() => error2()}>error2</button>
+		</>
 	)
 }
 
